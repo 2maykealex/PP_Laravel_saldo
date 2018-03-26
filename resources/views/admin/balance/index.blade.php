@@ -14,7 +14,7 @@
 @section('content')
     <div class = "box">
         <div class = "box-header">
-            <a href="" class="btn btn-primary"> <i class ="fa fa-cart-plus" aria-hidden="true"></i> Recarregar</a>
+            <a href="{{ route('balance.deposit') }}" class="btn btn-primary"> <i class ="fa fa-cart-plus" aria-hidden="true"></i> Recarregar</a>
             <a href="" class="btn btn-danger">  <i class ="fa fa-cart-arrow-down" aria-hidden="true"></i> Sacar</a>
 
         </div>
@@ -26,7 +26,7 @@
 
                 <div class="info-box-content">
                     <span class="info-box-text">Saldo</span>
-                    <span class="info-box-number">R$ 90,00 </span>
+                    <span class="info-box-number">R$ {{ number_format($amount, 2, ',', '') }} </span>
                     <a href="#" class="small-box-footer">Ver histórico <i class ="glyphicon glyphicon-circle-arrow-right"></i></a>
                 </div>
                 <!-- /.info-box-content -->
