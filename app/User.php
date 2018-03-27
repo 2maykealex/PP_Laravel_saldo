@@ -28,7 +28,14 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    ##cria os relacionamentos
+
     public function balance(){
         return $this->hasOne(Balance::class);
     }
+
+    public function Historics(){
+        return $this->hasMany(Historic::class);
+    }
+    
 }
