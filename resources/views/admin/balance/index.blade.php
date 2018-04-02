@@ -25,6 +25,7 @@
                 <span class="info-box-icon bg-aqua"><i class="ion ion-cash"></i></span>
 
                 <div class="info-box-content">
+                    @include('admin.includes.alerts')
                     <span class="info-box-text">Saldo</span>
                     <span class="info-box-number">R$ {{ number_format($amount, 2, ',', '') }} </span>
                     <a href="#" class="small-box-footer">Ver histórico <i class ="glyphicon glyphicon-circle-arrow-right"></i></a>
