@@ -13,9 +13,8 @@ class Balance extends Model
 
         DB::beginTransaction();
 
-
         $totalBefore = $this->amount ? $this->amount : 0;
-        $this->amount += number_format($value, 2, '.', '');
+        $this->amount += number_format($value, 2, '.', '');  //incrementa o saldo
         $deposit= $this->save();
 
         $historic = auth()->user()->historics()->create([
@@ -44,9 +43,46 @@ class Balance extends Model
         ];
         }
 
-        
+    }
 
+    public function withDraw(float $value) : Array{
 
+        if ($this->amount < $value)
+            return [
+                'success' => false,
+                'message' => 'Saldo insuficiente',
+            ];
 
+        DB::beginTransaction();
+
+        $totalBefore = $this->amount ? $this->amount : 0;
+        $this->amount -= number_format($value, 2, '.', '');    //decrementa o saldo
+        $retirada= $this->save();
+
+        $historic = auth()->user()->historics()->create([
+            'type' => 'O',
+            'amount' => $value,
+            'total_before' => $totalBefore,
+            'total_after' =>  $this->amount,
+            'date' => date('Ymd'),
+        ]);
+
+        if ($retirada && $historic){
+
+            DB::commit();
+
+            return[
+                'success' => true,
+                'message' => 'Sucesso ao retirar'
+            ];
+        } else {
+
+            DB::rollback();
+            
+            return[
+            'success' => false,
+            'message' => 'Falha ao retirar'
+        ];
+        }
     }
 }

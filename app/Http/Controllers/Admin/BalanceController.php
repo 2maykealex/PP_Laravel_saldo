@@ -39,9 +39,9 @@ class BalanceController extends Controller
     }
 
     public function withDrawStore(MoneyValidationFormRequest $request){
-        dd($request->all());
+        // dd($request->all());
         $balance = auth()->user()->balance()->firstOrCreate([]);
-        $response = $balance->deposit($request->value);
+        $response = $balance->withdraw($request->value);
 
         if ($response['success'])
             return redirect()
