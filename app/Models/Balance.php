@@ -75,6 +75,7 @@ class Balance extends Model
                 'success' => true,
                 'message' => 'Sucesso ao retirar'
             ];
+            
         } else {
 
             DB::rollback();
