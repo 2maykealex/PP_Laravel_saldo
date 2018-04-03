@@ -35,8 +35,16 @@ class User extends Authenticatable
         return $this->hasOne(Balance::class);
     }
 
-    public function Historics(){
+    public function historics(){
         return $this->hasMany(Historic::class);
     }
     
+    public function getSender($sender){
+        return $this->where('name', 'LIKE', "%$sender%")
+             ->orWhere('email', $sender)
+             ->get()     
+             ->first();
+             //  ->toSql();    
+    }
+
 }

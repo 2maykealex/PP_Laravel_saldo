@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Balance;
 use App\Http\Requests\MoneyValidationFormRequest;
+use App\user;
 
 class BalanceController extends Controller
 {
@@ -57,8 +58,9 @@ class BalanceController extends Controller
         return view('admin.balance.transfer');
     }
 
-    public function confirmTransfer(Request $request){
-        dd($request->all());
+    public function confirmTransfer(Request $request, User $user){
+        $sender = $user->getSender($request->sender); 
+        dd($sender);
     }
 
 }
