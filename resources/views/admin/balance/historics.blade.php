@@ -15,7 +15,7 @@
     <div class = "box">
         <div class = "box-header">
             <form action="{{ route('historic.search') }}" method="POST" class="form form-inline">
-                {{!! csrf_field() !!}}
+                {!! csrf_field() !!}
                 <input type="text" name="id" class="form-control" placeholder="Id">
                 <input type="date" name="date" class="form-control">
                 <select name="type" class="form-control">
