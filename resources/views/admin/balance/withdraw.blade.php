@@ -3,7 +3,7 @@
 @section('title', 'Nova Recarga')
 
 @section('content_header')
-    <h1>Fazer Retirada</h1>
+    <h1>Realizar saque</h1>
 
     <ol class="breadcrumb">
         <li><a href="">Dashboard</a></li>
@@ -15,7 +15,7 @@
 @section('content')
     <div class = "box">
         <div class = "box-header">
-            <h3>Fazer recarga</h3>
+            <h3>Realizar saque</h3>
         </div>
 
         <div class="box-body">
@@ -24,7 +24,7 @@
             <form method="POST" action="{{ route('withdraw.store') }}">
                 {!! csrf_field() !!}
                 <div class="form-group">
-                    <input type="text" name="value" class="form-control" placeholder="Valor retirada">
+                    <input type="text" name="value" class="form-control" placeholder="Valor a ser retirado">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-success">Sacar</button>

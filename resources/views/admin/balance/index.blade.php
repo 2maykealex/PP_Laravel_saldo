@@ -36,7 +36,7 @@
                 <div class="info-box-content"> 
                     <span class="info-box-text">Saldo</span>
                     <span class="info-box-number">R$ {{ number_format($amount, 2, ',', '') }} </span>
-                    <a href="#" class="small-box-footer">Ver histórico <i class ="glyphicon glyphicon-circle-arrow-right"></i></a>
+                    <a href="{{ route('admin.historic') }}" class="small-box-footer">Ver histórico <i class ="glyphicon glyphicon-circle-arrow-right"></i></a>
                 </div>
             </div> <!-- /.info-box-content -->
         </div> <!-- /.info-box -->        

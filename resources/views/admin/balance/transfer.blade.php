@@ -8,7 +8,7 @@
     <ol class="breadcrumb">
         <li><a href="">Dashboard</a></li>
         <li><a href="">Saldo</a></li>
-        <li><a href="">Depositar</a></li>
+        <li><a href="">Transferir</a></li>
     </ol>
 @stop
 
