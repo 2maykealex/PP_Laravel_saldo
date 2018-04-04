@@ -48,6 +48,8 @@
                     @endforelse
                 </tbody>
             </table>
+
+            {!! $historics->links() !!}
         </div> <!-- /.info-box -->        
     </div> <!-- /box -->
 @stop
