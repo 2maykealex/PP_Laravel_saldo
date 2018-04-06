@@ -75,6 +75,7 @@
                     @else
                         <a href="{{ route('login') }}">Login</a>
                         <a href="{{ route('register') }}">Register</a>
+                        <a href="{{ route('profile') }}">Meu perfil</a> <!-- Arrumar para colocar no menu acima, caso o usuário esteja logado -->
                     @endauth
                 </div>
             @endif
