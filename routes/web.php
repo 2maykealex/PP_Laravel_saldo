@@ -14,12 +14,12 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     $this->  get('balance', 'BalanceController@index')->name('admin.balance');
     $this->  get('/', 'AdminController@index')->name('admin');
 });
- 
+
+$this-> post('atualizar-perfil', 'Admin\UserController@profileUpdate')->name('profile.update')->middleware('auth');
 $this-> get('meu-perfil', 'Admin\UserController@profile')->name('profile')->middleware('auth');
-$this->  get('/', 'Site\SiteController@index')->name('login');
 
 
+$this->  get('/', 'Site\SiteController@index')->name('home');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
